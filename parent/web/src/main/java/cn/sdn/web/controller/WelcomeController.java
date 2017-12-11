@@ -2,10 +2,13 @@ package cn.sdn.web.controller;
 
 import cn.sdn.pojo.User;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpRequest;
+import org.springframework.web.HttpMediaTypeException;
+import org.springframework.web.HttpRequestHandler;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * @auther: lixiang
@@ -14,15 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @Modified By:
  */
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping
 public class WelcomeController {
 
-    @PostMapping(path = "/getUser")
-    public User getUser(@RequestParam(name="id") String id){
-        User user = new User();
-        user.setUserName("XXX");
-        user.setPassword("xxxxxxxx");
-        return user;
+    @GetMapping(path = "/home")
+    public void home(HttpServletResponse request , HttpServletResponse response){
+        try {
+            response.getWriter().write("<html><body><h1 style='color:red;'>Hi World</h1></body></html>");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
