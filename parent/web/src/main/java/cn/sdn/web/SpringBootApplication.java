@@ -4,7 +4,7 @@ package cn.sdn.web;
 import org.springframework.boot.SpringApplication;
 
 /**
- * @auther: lixiang
+ * @author lixiang
  * @Description:
  * @Date: Created in 11:47 2017/11/3
  * @Modified By:
