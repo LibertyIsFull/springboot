@@ -20,7 +20,7 @@
 *.zip
 *.tar.gz
 *.rar
-*.target
+*.target/
 
 *.iml
 *.idea/
